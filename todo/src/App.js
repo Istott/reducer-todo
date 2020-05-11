@@ -1,93 +1,110 @@
-import React from 'react';
+import React, {useState, useReducer, useEffect} from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import './App.css';
 
-const tasks = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "ADD_TASK":
+      return [
+        ...state,
+        {
+          task: action.payload.task,
+          id: Date.now(),
+          completed: false
+        }
+      ]
+    case "TOGGLE_COMPLETED":
+      return 
+    default:
+      return state;
   }
-];
+};
 
-class App extends React.Component {
+const initialState = [
+    {
+      task: 'Organize Garage',
+      id: 1528817077286,
+      completed: false
+    },
+    {
+      task: 'Learn about Reducers',
+      id: 1528817084358,
+      completed: false
+    }
+  ]
 
-  constructor() {
-    super(); // this.state, this.setState, lifecycle methods
-    this.state = {
-      tasks, // shorthand for tasks: tasks
-    };
-  }
+const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [item, setItem] = useState('');
 
+  useEffect(()=> {
+    console.log(state)
+  }, [])
   
-  clearCompleted = () => {
-    this.setState ({
-      tasks: this.state.tasks.filter(el =>{
+  const clearCompleted = () => {
+    dispatch ({
+      tasks: state.filter(el =>{
         return (el.completed !== true)
       })
     })
 
   };
  
+  const toggleCompleted = clickedItemId => {
+    dispatch({
+      type: 'TOGGLE_COMPLETED', 
+    })
 
-  // Class methods to update state
-  toggleCompleted = clickedItemId => {
-    this.setState({
-      tasks: this.state.tasks.map(item => {
-        if (item.id === clickedItemId) {
-          return {
-            ...item,
-            completed: !item.completed
-          };
-        } else {
-          return item;
-        }
-      })
-    });
+    state.map(item => {
+      if (item.id === clickedItemId) {
+        return {
+          ...item,
+          completed: !item.completed
+        };
+      } else {
+        return item;
+      }
+    })
   };
 
-  addTask = taskName => {
-    console.log(taskName)
-    // add a new item to the groceries state
-    const newTask = {
-      task: taskName,
-      id: Date.now(),
-      completed: false
-    };
-    this.setState({
-      tasks: [...this.state.tasks, newTask]
+  const addTask = event => {
+    event.preventDefault();
+
+    dispatch({ 
+      type: "ADD_TASK", 
+      payload: {
+        task: item 
+      }
     });
-    console.log(this.state);
+    console.log(state);
   };
 
-  render() {
-    return (
-      <div className='App'>
-        <div className='wrapper'>
-          <div>
-            <h2>Welcome to your Todo App!</h2>
-          </div>
-          
-          <div className='header'>
-            <h2>To-Do List</h2>
-            <TodoForm addTask={this.addTask} />
-          </div>
-          <TodoList
-            tasks={this.state.tasks}
-            clearCompleted={this.clearCompleted}
-            toggleCompleted={this.toggleCompleted}
-          />
+  return (
+    <div className='App'>
+      <div className='wrapper'>
+        <div>
+          <h2>Welcome to your Todo App!</h2>
         </div>
+        
+        <div className='header'>
+          <h2>To-Do List</h2>
+          <TodoForm 
+          item={item}
+          setItem={setItem}
+          addTask={addTask}
+        />
+        </div>
+        <TodoList
+          tasks={state}
+          clearCompleted={clearCompleted}
+          toggleCompleted={toggleCompleted}
+        />
       </div>
-       
-    );
-  }
+    </div>
+      
+  );
+
 }
 
 export default App;
