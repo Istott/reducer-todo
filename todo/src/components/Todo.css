@@ -1,13 +1,15 @@
 .item.completed {
     text-decoration: line-through;
-    background-color: red;
+    background-color:  rgb(96, 104, 109);
 }
 
 .item {
-    border: 1px blue solid;
+    border: 2px rgb(49, 100, 151) solid;
+    width: 50%;
     margin-top: 2%;
     margin-bottom: 2%;
     padding-left: 2%;
     border-radius: 10px;
     background-color: lightsteelblue;
+    box-shadow: 5px 10px 20px #888888;
 }

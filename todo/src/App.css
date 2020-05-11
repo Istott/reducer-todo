@@ -4,20 +4,44 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: lightcoral;
+  background-color: rgb(96, 104, 109);
   height: 100vh;
 }
 
 .App h2 {
-  color: lightslategrey;
+  color: black;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: lightcyan;
+	background: linear-gradient(141deg, #1fc8db 10%, white 41%, #1fc8db 95%);
   width: 50%;
   padding:2%;
   border-radius: 10px;
+  box-shadow: 5px 10px 20px #888888;
+}
+
+button {
+  background-color: rgb(49, 100, 151);
+  border: none;
+  border-radius: 5px;
+  color: rgb(240, 239, 245);
+  padding: 1% 2%;
+
+}
+
+button:hover {
+  background: linear-gradient(180deg, rgb(49, 100, 151) 10%, white 41%, rgb(49, 100, 151) 95%);
+  color: black;
+  transition: 0.7s;
+
+}
+
+Form input {
+  border: 1px rgb(49, 100, 151) solid;
+  margin: 1%;
+  border-radius: 5px;
+  padding: 1% 0;
 }

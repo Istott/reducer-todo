@@ -15,7 +15,10 @@ const reducer = (state, action) => {
         }
       ]
     case "TOGGLE_COMPLETED":
-      return 
+      return action.payload
+    
+    case "CLEAR_COMPLETED":
+      return action.payload
     default:
       return state;
   }
@@ -44,7 +47,8 @@ const App = () => {
   
   const clearCompleted = () => {
     dispatch ({
-      tasks: state.filter(el =>{
+      type: "CLEAR_COMPLETED",
+      payload: state.filter(el =>{
         return (el.completed !== true)
       })
     })
@@ -54,18 +58,19 @@ const App = () => {
   const toggleCompleted = clickedItemId => {
     dispatch({
       type: 'TOGGLE_COMPLETED', 
+      payload: 
+        state.map(item => {
+          if (item.id === clickedItemId) {
+            return {
+              ...item,
+              completed: !item.completed
+            };
+          } else {
+            return item;
+          }
+        })
     })
 
-    state.map(item => {
-      if (item.id === clickedItemId) {
-        return {
-          ...item,
-          completed: !item.completed
-        };
-      } else {
-        return item;
-      }
-    })
   };
 
   const addTask = event => {
