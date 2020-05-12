@@ -26,12 +26,12 @@ const reducer = (state, action) => {
 
 const initialState = [
     {
-      task: 'Organize Garage',
+      task: 'build todo app with reducers',
       id: 1528817077286,
       completed: false
     },
     {
-      task: 'Learn about Reducers',
+      task: 'style your app',
       id: 1528817084358,
       completed: false
     }

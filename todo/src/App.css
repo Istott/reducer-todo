@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-	background: linear-gradient(141deg, #1fc8db 10%, white 41%, #1fc8db 95%);
+	background: linear-gradient(90deg, white 8%, rgb(56, 97, 122) 75%);
   width: 50%;
   padding:2%;
   border-radius: 10px;
@@ -29,7 +29,7 @@ button {
   border-radius: 5px;
   color: rgb(240, 239, 245);
   padding: 1% 2%;
-
+  box-shadow: 5px 10px 20px #888888;
 }
 
 button:hover {
