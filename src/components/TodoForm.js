@@ -19,7 +19,7 @@ const TodoForm = (props) => {
           placeholder= " ...to-do"
           onChange={handleChanges}
         />
-        <button>Add to-do</button>
+        <button>Add To List</button>
       </form>
     );
 }

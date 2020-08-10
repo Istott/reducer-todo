@@ -26,7 +26,7 @@ const reducer = (state, action) => {
 
 const initialState = [
     {
-      task: 'build todo app with reducers',
+      task: 'build todo app with redux',
       id: 1528817077286,
       completed: false
     },
@@ -43,7 +43,7 @@ const App = () => {
 
   useEffect(()=> {
     console.log(state)
-  }, [])
+  }, [state])
   
   const clearCompleted = () => {
     dispatch ({
@@ -88,9 +88,9 @@ const App = () => {
   return (
     <div className='App'>
       <div className='wrapper'>
-        <div>
+        {/* <div>
           <h2>Welcome to your Todo App!</h2>
-        </div>
+        </div> */}
         
         <div className='header'>
           <h2>To-Do List</h2>

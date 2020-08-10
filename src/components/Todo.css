@@ -1,15 +1,19 @@
 .item.completed {
     text-decoration: line-through;
-    background-color:  rgb(96, 104, 109);
+    /* background-color:  rgb(96, 104, 109); */
 }
 
 .item {
-    border: 2px rgb(49, 100, 151) solid;
+    /* border: 2px rgb(49, 100, 151) solid; */
+    font-size: 1.5rem;
     width: 50%;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin: 4% 0;
     padding-left: 2%;
     border-radius: 10px;
-    background-color: lightsteelblue;
-    box-shadow: 5px 10px 20px #888888;
+    /* background-color: lightsteelblue; */
+    /* box-shadow: 5px 10px 20px #888888; */
+}
+
+.item:hover {
+    text-decoration: line-through;
 }
