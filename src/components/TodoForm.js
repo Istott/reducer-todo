@@ -10,18 +10,18 @@ const TodoForm = (props) => {
     console.log(props.item)
   };
 
-    return (
-      <form onSubmit={props.addTask}>
-        <input
-          type="text"
-          name="item"
-          value={props.item}
-          placeholder= " ...to-do"
-          onChange={handleChanges}
-        />
-        <button>Add To List</button>
-      </form>
-    );
+  return (
+    <form onSubmit={props.addTask}>
+      <input
+        type="text"
+        name="item"
+        value={props.item}
+        placeholder= " ...to-do"
+        onChange={handleChanges}
+      />
+      <button >Add To List</button>
+    </form>
+  );
 }
 
 export default TodoForm;

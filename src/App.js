@@ -82,16 +82,14 @@ const App = () => {
         task: item 
       }
     });
+
+    setItem('')
     console.log(state);
   };
 
   return (
     <div className='App'>
-      <div className='wrapper'>
-        {/* <div>
-          <h2>Welcome to your Todo App!</h2>
-        </div> */}
-        
+      <div className='wrapper'>  
         <div className='header'>
           <h2>To-Do List</h2>
           <TodoForm 
